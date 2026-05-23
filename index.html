@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Triple T Talks</title>
+
+  <link
+    rel="icon"
+    type="image/x-icon"
+    href="https://cdn.spencers.zone/images/SLFavicon.ico"
+  />
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --accent: #38bdf8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.25), transparent 35%),
+        linear-gradient(135deg, #020617, #0f172a 45%, #111827);
+      overflow: hidden;
+    }
+
+    .background-grid {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(circle at center, black 35%, transparent 85%);
+      pointer-events: none;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 720px;
+      text-align: center;
+      padding: 4rem 3rem;
+      border-radius: 28px;
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      border: 1px solid var(--border);
+      box-shadow:
+        0 10px 40px rgba(0,0,0,0.45),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+      animation: fadeIn 1s ease;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #ffffff, #7dd3fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h2 {
+      font-size: clamp(1.25rem, 3vw, 2rem);
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.2s ease;
+    }
+
+    a:hover {
+      opacity: 0.8;
+    }
+
+    .glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.08);
+      filter: blur(120px);
+      z-index: -1;
+    }
+
+    .glow.one {
+      top: -150px;
+      left: -100px;
+    }
+
+    .glow.two {
+      bottom: -150px;
+      right: -100px;
+      background: rgba(168, 85, 247, 0.08);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .card {
+        padding: 3rem 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-grid"></div>
+
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+
+  <main class="card">
+    <h1>Triple T Talks</h1>
+    <h2>Coming Soon</h2>
+
+    <p>
+      While you're here, try visiting
+      <a href="https://tubby.spencers.zone" target="_blank" rel="noopener noreferrer">
+        tubby.spencers.zone
+      </a>
+    </p>
+  </main>
+
+  <script>
+    const titles = [
+      "Triple T Talks",
+      "The Spencer Ledger Website"
+    ];
+
+    let index = 0;
+
+    setInterval(() => {
+      index = (index + 1) % titles.length;
+      document.title = titles[index];
+    }, 5000);
+  </script>
+</body>
+</html>
