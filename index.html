@@ -6,22 +6,9 @@
 
   <title>Triple T Talks</title>
 
-  <link
-    rel="icon"
-    type="image/x-icon"
-    href="https://cdn.spencers.zone/images/SLFavicon.ico"
-  />
+  <link rel="icon" type="image/x-icon" href="https://cdn.spencers.zone/images/SLFavicon.ico" />
 
   <style>
-    :root {
-      --bg: #0f172a;
-      --card: rgba(255, 255, 255, 0.08);
-      --border: rgba(255, 255, 255, 0.12);
-      --text: #f8fafc;
-      --muted: #cbd5e1;
-      --accent: #38bdf8;
-    }
-
     * {
       margin: 0;
       padding: 0;
@@ -29,149 +16,159 @@
     }
 
     body {
+      font-family: "Inter", "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #111827, #1f2937);
+      color: white;
       min-height: 100vh;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.25), transparent 35%),
-        linear-gradient(135deg, #020617, #0f172a 45%, #111827);
-      overflow: hidden;
+      flex-direction: column;
     }
 
-    .background-grid {
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      mask-image: radial-gradient(circle at center, black 35%, transparent 85%);
-      pointer-events: none;
-    }
-
-    .card {
-      width: 100%;
-      max-width: 720px;
+    header {
       text-align: center;
-      padding: 4rem 3rem;
-      border-radius: 28px;
-      background: var(--card);
-      backdrop-filter: blur(18px);
-      border: 1px solid var(--border);
-      box-shadow:
-        0 10px 40px rgba(0,0,0,0.45),
-        inset 0 1px 0 rgba(255,255,255,0.05);
-      animation: fadeIn 1s ease;
+      padding: 70px 20px 40px;
     }
 
-    h1 {
-      font-size: clamp(3rem, 7vw, 5rem);
+    header h1 {
+      font-size: 3rem;
       font-weight: 800;
-      letter-spacing: -0.04em;
-      margin-bottom: 1rem;
-      background: linear-gradient(90deg, #ffffff, #7dd3fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      letter-spacing: -1px;
+      margin-bottom: 15px;
     }
 
-    h2 {
-      font-size: clamp(1.25rem, 3vw, 2rem);
-      font-weight: 500;
-      color: var(--muted);
-      margin-bottom: 2rem;
-    }
-
-    p {
-      font-size: 1.05rem;
-      color: var(--muted);
+    header p {
+      color: #d1d5db;
+      max-width: 700px;
+      margin: auto;
       line-height: 1.7;
+      font-size: 1.05rem;
     }
 
-    a {
-      color: var(--accent);
+    .episodes {
+      width: 100%;
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex: 1;
+    }
+
+    .episode-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 24px;
       text-decoration: none;
+      color: white;
+      transition: 0.25s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .episode-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(59, 130, 246, 0.45);
+    }
+
+    .episode-number {
+      font-size: 0.9rem;
+      color: #93c5fd;
+      margin-bottom: 10px;
       font-weight: 600;
-      transition: opacity 0.2s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    a:hover {
-      opacity: 0.8;
+    .episode-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
     }
 
-    .glow {
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      background: rgba(56, 189, 248, 0.08);
-      filter: blur(120px);
-      z-index: -1;
+    .episode-description {
+      color: #d1d5db;
+      line-height: 1.6;
+      font-size: 0.98rem;
     }
 
-    .glow.one {
-      top: -150px;
-      left: -100px;
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #9ca3af;
+      font-size: 0.9rem;
     }
 
-    .glow.two {
-      bottom: -150px;
-      right: -100px;
-      background: rgba(168, 85, 247, 0.08);
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 2.2rem;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
 
-    @media (max-width: 640px) {
-      .card {
-        padding: 3rem 2rem;
+      .episode-title {
+        font-size: 1.2rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="background-grid"></div>
 
-  <div class="glow one"></div>
-  <div class="glow two"></div>
-
-  <main class="card">
+  <header>
     <h1>Triple T Talks</h1>
-    <h2>Coming Soon</h2>
 
     <p>
-      While you're here, try visiting
-      <a href="https://tubby.spencers.zone" target="_blank" rel="noopener noreferrer">
-        tubby.spencers.zone
-      </a>
+      Hosted by Yoan Georgiev and Jake Tubby.
     </p>
+  </header>
+
+  <main class="episodes">
+
+    <a class="episode-card" href="episode-1.html">
+      <div class="episode-number">EPISODE 1: SPECIAL GUEST</div>
+      <div class="episode-title">Spencer Ledger</div>
+      <div class="episode-description">
+        Spencer joins the podcast as the first special guest to discuss
+        interests, technology, politics, and more.
+      </div>
+    </a>
+
+    <a class="episode-card" href="episode-2.html">
+      <div class="episode-number">Episode 2: Coming soon</div>
+      <div class="episode-title">John Doe</div>
+      <div class="episode-description">
+        An unknown description will go here once episode 2 releases.
+      </div>
+    </a>
+
+    <a class="episode-card" href="episode-3.html">
+      <div class="episode-number">Episode 3: Coming soon</div>
+      <div class="episode-title">Jane Doe</div>
+      <div class="episode-description">
+        An unknown description will go here once episode 3 releases.
+      </div>
+    </a>
+
+    <a class="episode-card" href="episode-4.html">
+      <div class="episode-number">Episode 4: Coming soon</div>
+      <div class="episode-title">John Doe</div>
+      <div class="episode-description">
+        An unknown description will go here once episode 4 releases.
+      </div>
+    </a>
+
+    <a class="episode-card" href="episode-5.html">
+      <div class="episode-number">Episode 5: Coming Soon</div>
+      <div class="episode-title">Jane Doe</div>
+      <div class="episode-description">
+        An unknown description will go here once episode 5 releases.
+      </div>
+    </a>
+
   </main>
 
-  <script>
-    const titles = [
-      "Triple T Talks",
-      "The Spencer Ledger Website"
-    ];
+  <footer>
+    Triple T Talks | part of the spencers.zone framework
+  </footer>
 
-    let index = 0;
-
-    setInterval(() => {
-      index = (index + 1) % titles.length;
-      document.title = titles[index];
-    }, 5000);
-  </script>
 </body>
 </html>
