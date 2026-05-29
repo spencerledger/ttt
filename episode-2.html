@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Triple T Talks - E2</title>
+
+  <link rel="icon" type="image/x-icon" href="https://cdn.spencers.zone/images/SLFavicon.ico" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #111827, #1f2937);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    header {
+      margin-top: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .subtitle {
+      margin-top: 15px;
+      color: #d1d5db;
+      max-width: 700px;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    .player-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .play-button {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: none;
+      background: #3b82f6;
+      color: white;
+      font-size: 3rem;
+      cursor: pointer;
+      transition: 0.25s ease;
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.35);
+    }
+
+    .play-button:hover {
+      transform: scale(1.08);
+      background: #2563eb;
+    }
+
+    audio {
+      width: 320px;
+      max-width: 90vw;
+    }
+
+    footer {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Triple T Talks: E2 | Luke Robinson</h1>
+
+    <p class="subtitle">
+      In the second episode of Triple T Talks, Yoan Georgiev and Jake Tubby are joined by special guest Luke Adam Robinson who tells them stories about his life.
+    </p>
+  </header>
+
+  <main class="player-container">
+
+    <button class="play-button" id="playBtn">▶</button>
+
+    <audio id="podcastPlayer" controls>
+      <source src="https://ia902806.us.archive.org/33/items/triple-t-talks-e2/episode2.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+  </main>
+
+  <footer>
+    Date recorded: 10 May 2026
+  </footer>
+
+  <script>
+    const playBtn = document.getElementById('playBtn');
+    const player = document.getElementById('podcastPlayer');
+
+    playBtn.addEventListener('click', () => {
+      if (player.paused) {
+        player.play();
+        playBtn.textContent = '❚❚';
+      } else {
+        player.pause();
+        playBtn.textContent = '▶';
+      }
+    });
+
+    player.addEventListener('ended', () => {
+      playBtn.textContent = '▶';
+    });
+  </script>
+
+</body>
+</html>
