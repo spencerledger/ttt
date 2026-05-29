@@ -1,0 +1,9 @@
+# Security Policy
+
+## Reporting a Vulnerability
+
+To report a vulnerability, please contact webmaster@spencers.zone detailing the vulnerability.
+
+## Any other issues
+
+To report any other issues, please email triplettalks@gmail.com.
