@@ -75,10 +75,65 @@
       max-width: 90vw;
     }
 
+    /* ===== FOOTER ===== */
     footer {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
       font-size: 0.9rem;
       color: #9ca3af;
       margin-bottom: 10px;
+    }
+
+    .footer-left {
+      flex: 0 0 auto;
+    }
+
+    .back-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-btn img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      justify-content: center;
+      flex: 1;
+      flex-wrap: wrap;
+    }
+
+    .cc-link img {
+      width: 90px;
+      height: auto;
+    }
+
+    .footer-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-align: left;
+    }
+
+    .footer-text a {
+      color: #d1d5db;
+      text-decoration: underline;
+    }
+
+    .footer-text a:hover {
+      color: white;
     }
   </style>
 </head>
@@ -104,7 +159,35 @@
   </main>
 
   <footer>
-    Date recorded: 10 May 2026
+    
+    <!-- Back Button (far left) -->
+    <div class="footer-left">
+      <button class="back-btn" onclick="history.back()">
+        <img src="https://cdn.spencers.zone/images/arrow-left.svg" alt="Back">
+      </button>
+    </div>
+
+    <!-- Center footer content -->
+    <div class="footer-content">
+
+      <a class="cc-link" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">
+        <img src="https://cdn.spencers.zone/images/cc-by-nc-nd.png" alt="CC BY-NC-ND">
+      </a>
+
+      <div class="footer-text">
+        <div>
+          If you have any suggestions contact
+          <a href="mailto:tripletalks@gmail.com">tripletalks@gmail.com</a>
+        </div>
+
+        <div>
+          If you see a problem with the site
+          <a href="https://clicks.spencers.zone/error">click here</a>
+        </div>
+      </div>
+
+    </div>
+
   </footer>
 
   <script>
